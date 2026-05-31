@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Затишна кав'ярня Aroma Cafe</title>
+    <!-- Підключення зовнішнього CSS стилю -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="header">
+        <div class="logo">Aroma<span>Cafe</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Головна</a></li>
+                <li><a href="#menu">Меню</a></li>
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#booking">Бронювання</a></li>
+            </ul>
+        </nav>
+        <button class="open-modal-btn" id="openPromoBtn">Акція дня 🎉</button>
+    </header>
+
+    <!-- Головна секція (Hero) -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>Почніть свій ранок із правильної кави</h1>
+            <p>Затишна атмосфера, свіжообсмажені кавові зерна та неймовірні десерти власного приготування чекають на вас щодня.</p>
+            <a href="#booking" class="cta-button">Забронювати столик</a>
+        </div>
+    </section>
+
+    <!-- Секція інтерактивного меню / галереї (Flexbox) -->
+    <section class="menu-section" id="menu">
+        <h2>Наше фірмове меню</h2>
+        <p class="section-subtitle">Оберіть категорію або натисніть на страву, щоб підсвітити її</p>
+        
+        <!-- Фільтр/Перемикач меню -->
+        <div class="menu-filter">
+            <button class="filter-btn active" data-category="all">Все меню</button>
+            <button class="filter-btn" data-category="drinks">Напої</button>
+            <button class="filter-btn" data-category="desserts">Десерти</button>
+        </div>
+
+        <div class="menu-container">
+            <!-- Картка 1 -->
+            <div class="menu-card" data-type="drinks">
+                <img src="https://img.rl0.ru/afisha/e1500x1000i/daily.afisha.ru/uploads/images/0/b6/0b649ce167b08bf638781d422f8472be.jpg" alt="Капучино" class="menu-img">
+                <div class="card-body">
+                    <h3>Класичний Капучино</h3>
+                    <p>Ніжна молочна пінка та подвійна порція ароматного еспресо.</p>
+                    <span class="price">65 ₴</span>
+                </div>
+            </div>
+            <!-- Картка 2 -->
+            <div class="menu-card" data-type="drinks">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Latte_macchiato.jpg/500px-Latte_macchiato.jpg" alt="Лате" class="menu-img">
+                <div class="card-body">
+                    <h3>Карамельний Лате</h3>
+                    <p>М'який кавовий смак із додаванням натурального карамельного сиропу.</p>
+                    <span class="price">75 ₴</span>
+                </div>
+            </div>
+            <!-- Картка 3 -->
+            <div class="menu-card" data-type="desserts">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Baked_cheesecake_with_raspberries_and_blueberries.jpg/960px-Baked_cheesecake_with_raspberries_and_blueberries.jpg" alt="Чізкейк" class="menu-img">
+                <div class="card-body">
+                    <h3>Нью-Йорк Чізкейк</h3>
+                    <p>Ніжна сирна текстура на хрусткому пісочному коржі з полуницею.</p>
+                    <span class="price">95 ₴</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секція про нас із сайдбаром (Двоколонковий макет з першої лаби) -->
+    <div class="main-container" id="about">
+        <main class="content-block">
+            <h2>Про нашу філософію</h2>
+            <p>Ми віримо, що кава — це не просто напій, це ритуал. Кожен ранок ми починаємо з ретельного калібрування кавомолок та перевірки якості молока. Наші бариста — справжні майстри, які проходять сертифікацію та щиро люблять свою справу.</p>
+            <p>Завітайте до нас на роботу з ноутбуком, романтичне побачення або теплу зустріч із давніми друзями.</p>
+        </main>
+        
+        <aside class="sidebar-block">
+            <h3>Графік роботи</h3>
+            <p><strong>Будні:</strong> 08:00 – 22:00</p>
+            <p><strong>Вихідні:</strong> 09:00 – 23:00</p>
+            <hr>
+            <h3>Наша адреса</h3>
+            <p>м. Київ, вул. Затишна, 15</p>
+        </aside>
+    </div>
+
+    <!-- Секція бронювання з валідацією форми -->
+    <section class="booking-section" id="booking">
+        <h2>Забронювати столик онлайн</h2>
+        <div class="booking-container">
+            <form id="bookingForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Ваше ім'я</label>
+                    <input type="text" id="name" placeholder="Олександр">
+                    <span class="error-msg">Ім'я має містити не менше 3 букв</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Номер телефону</label>
+                    <input type="tel" id="phone" placeholder="0XXXXXXXXX">
+                    <span class="error-msg">Введіть правильний номер (наприклад, 0931234567)</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Кількість гостей</label>
+                    <input type="number" id="guests" min="1" max="10" value="2">
+                    <span class="error-msg">Кількість гостей має бути від 1 до 10</span>
+                </div>
+
+                <button type="submit" class="submit-btn">Підтвердити бронювання</button>
+                <div class="success-box" id="successNotification">🎉 Стіл успішно заброньовано! Чекаємо на вас.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Підвал сайту -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2026 Aroma Cafe. Всі права захищені. Випускний веб-проект.</p>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно (Акція) -->
+    <div class="modal-overlay" id="promoModal">
+        <div class="modal-box">
+            <button class="close-modal-btn" id="closePromoBtn">&times;</button>
+            <h3>🔥 Акція сьогодні!</h3>
+            <p>Покажіть цей екран баристі при замовленні будь-якого великого десерту та отримайте класичний Еспресо або Американо в подарунок!</p>
+            <button class="submit-btn" id="modalOkBtn">Дякую, обов'язково завітають!</button>
+        </div>
+    </div>
+
+    <!-- Кнопка "Вгору" -->
+    <button class="scroll-top-btn" id="scrollTopBtn">↑</button>
+
+    <!-- Підключення зовнішнього JS скрипту -->
+    <script src="index.js"></script>
+</body>
+</html>
